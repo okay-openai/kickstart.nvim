@@ -2,7 +2,7 @@ return {
 
   {
     'ibhagwan/fzf-lua',
-    dependencies = { { 'junegunn/fzf' } },
+    dependencies = { { 'junegunn/fzf', 'folke/trouble.nvim' } },
     config = function()
       local actions = require 'fzf-lua'
       vim.keymap.set('n', '<leader>sf', actions.files, { desc = '[S]earch [F]iles' })
@@ -16,7 +16,13 @@ return {
       vim.keymap.set('n', '<leader>sr', actions.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>ss', actions.builtin, { desc = '[S]earch [S]elect Search' })
 
-      actions.setup { 'max-perf', fzf_opts = { ['--layout'] = 'default' }, preview_opts = 'hidden' }
+      actions.setup {  'max-perf', fzf_opts = { ['--layout'] = 'default' }, preview_opts = 'hidden', keymap = {
+        fzf = {
+          true,
+          ['ctrl-u'] = 'half-page-up',
+          ['ctrl-d'] = 'half-page-down',
+        },
+      } }
 
       -- It's also possible to pass additional configuration options.
       --  See `:help telescope.builtin.live_grep()` for information about particular keys
@@ -28,6 +34,11 @@ return {
       vim.keymap.set('n', '<leader>sn', function()
         actions.files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
+
+      local config = require("fzf-lua.config")
+      local actions = require("trouble.sources.fzf").actions
+      config.defaults.actions.files["ctrl-t"] = actions.open
+
     end,
   },
 }

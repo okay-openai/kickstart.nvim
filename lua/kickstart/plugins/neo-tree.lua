@@ -13,4 +13,8 @@ return {
   keys = {
     { '<Leader>pt', ':Neotree toggle<CR>', desc = '[P]anel Neo[T]ree', silent = true },
   },
+  opts = {
+    buffers = { follow_current_file = { enabled = true } },
+    filesystem = { follow_current_file = { enabled = true } }
+  }
 }

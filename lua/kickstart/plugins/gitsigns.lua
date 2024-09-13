@@ -7,12 +7,22 @@ return {
     'lewis6991/gitsigns.nvim',
     opts = {
       signs = {
-        add = { text = '+' },
-        change = { text = '~' },
+        add = { text = '┃' },
+        change = { text = '┃' },
         delete = { text = '_' },
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
+        untracked = { text = '┆' },
       },
+      signs_staged = {
+        add = { text = '┃' },
+        change = { text = '┃' },
+        delete = { text = '_' },
+        topdelete = { text = '‾' },
+        changedelete = { text = '~' },
+        untracked = { text = '┆' },
+      },
+
       on_attach = function(bufnr)
         local gitsigns = require 'gitsigns'
 
@@ -56,11 +66,11 @@ return {
         map('n', '<leader>gp', gitsigns.preview_hunk, { desc = 'git [p]review hunk' })
         map('n', '<leader>gb', gitsigns.blame_line, { desc = 'git [b]lame line' })
         map('n', '<leader>gB', gitsigns.blame, { desc = 'git [B]lame' })
-        map('n', '<leader>gD', gitsigns.diffthis, { desc = 'git [d]iff against index' })
         map('n', '<leader>g-', gitsigns.toggle_deleted, { desc = 'git show [D]eleted' })
+        map('n', '<leader>gD', gitsigns.diffthis, { desc = 'git [D]iff against index' })
         map('n', '<leader>gd', function()
           gitsigns.diffthis '@'
-        end, { desc = 'git [D]iff against last commit' })
+        end, { desc = 'git [d]iff against last commit' })
         -- Toggles
       end,
     },

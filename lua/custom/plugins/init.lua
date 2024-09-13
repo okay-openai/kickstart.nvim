@@ -5,11 +5,18 @@ return {
   { 'tpope/vim-sleuth' },
   -- readline style
   { 'tpope/vim-rsi' },
+  -- cs', cs", cs(, cs[, cs{, cs<, cs<', cs<", cs<( for surrounding changes
+  { 'tpope/vim-surround' },
+  -- crm, crc, cr-, crs for changing case of variables
+  { 'tpope/vim-abolish' },
   -- copilot insertion
   { 'github/copilot.vim' },
   -- buffer management
   { 'jlanzarotta/bufexplorer' },
+  -- show a breadcrumb bar for the current buffer
+  { 'Bekaboo/dropbar.nvim', },
   -- undo tree shows a visual representation of the undo history
+  { 'hinell/lsp-timeout.nvim' },
   {
     'mbbill/undotree',
     config = function()
@@ -40,6 +47,32 @@ return {
       vim.keymap.set('n', '<leader>ci', require('lspimport').import, { noremap = true, desc = '[C]ode Quickfix [I]mport' })
     end,
   },
+  {
+    'Almo7aya/openingh.nvim',
+    config = function()
+      -- for current file page
+      vim.api.nvim_set_keymap('n', '<Leader>gf', ':OpenInGHFileLines! <CR>', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('v', '<Leader>gf', ':OpenInGHFileLines! <CR>', { silent = true, noremap = true })
+    end,
+  },
+  {
+    'sindrets/diffview.nvim',
+    config = function()
+      vim.keymap.set('n', '<leader>vo', function()
+        vim.cmd 'DiffviewOpen -uno'
+      end, { desc = 'version diff [o]pen' })
+      vim.keymap.set('n', '<leader>vc', function()
+        vim.cmd 'DiffviewClose'
+      end, { desc = 'version diff [c]lose' })
+      vim.keymap.set('n', '<leader>vf', function()
+        vim.cmd 'DiffviewFileHistory %'
+      end, { desc = 'version [f]ile history' })
+      vim.keymap.set('n', '<leader>vh', function()
+        vim.cmd 'DiffviewFileHistory'
+      end, { desc = 'version git [h]istory' })
+    end,
+  },
+
   -- { 'liuchengxu/vista.vim' },
   -- { 'neoclide/coc.nvim'}
 }

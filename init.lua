@@ -29,10 +29,6 @@ vim.opt.directory = vim.fn.stdpath 'data' .. '/swap'
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
--- Diagnostic keymaps
-vim.keymap.set('n', '<Leader>pq', vim.diagnostic.setloclist, { desc = '[P]anel [Q]iagnostics' })
-vim.keymap.set('n', '<Leader>pd', vim.diagnostic.setloclist, { desc = '[P]anel [D]iagnostics' })
-
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -71,8 +67,25 @@ require('lazy').setup {
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
+  require 'kickstart.plugins.trouble',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
   { import = 'custom.plugins' },
 }
+
+vim.keymap.set('n', '<Leader>li', function()
+  vim.cmd ':Lazy install'
+end, { desc = 'lazy install' })
+vim.keymap.set('n', '<Leader>lr', function()
+  return ':Lazy reload '
+end, { desc = 'lazy reload', expr = true })
+vim.keymap.set('n', '<Leader>ls', function()
+  vim.cmd ':Lazy sync'
+end, { desc = 'lazy sync' })
+vim.keymap.set('n', '<Leader>lx', function()
+  vim.cmd ':Lazy clean'
+end, { desc = 'lazy clean' })
+vim.keymap.set('n', '<Leader>lc', function()
+  vim.cmd ':Lazy clean'
+end, { desc = 'lazy clean' })
 
 -- vim: ts=2 sts=2 sw=2 et
