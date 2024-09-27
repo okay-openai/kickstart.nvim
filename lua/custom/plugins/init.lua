@@ -14,7 +14,7 @@ return {
   -- buffer management
   { 'jlanzarotta/bufexplorer' },
   -- show a breadcrumb bar for the current buffer
-  { 'Bekaboo/dropbar.nvim', },
+  { 'Bekaboo/dropbar.nvim' },
   -- undo tree shows a visual representation of the undo history
   { 'hinell/lsp-timeout.nvim' },
   {
@@ -71,6 +71,25 @@ return {
         vim.cmd 'DiffviewFileHistory'
       end, { desc = 'version git [h]istory' })
     end,
+  },
+
+  {
+    'yetone/avante.nvim',
+    event = 'VeryLazy',
+    lazy = false,
+    version = false, -- set this if you want to always pull the latest change
+    opts = {
+      provider = 'openai',
+    },
+    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+    build = 'make',
+    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'stevearc/dressing.nvim',
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+    },
   },
 
   -- { 'liuchengxu/vista.vim' },
