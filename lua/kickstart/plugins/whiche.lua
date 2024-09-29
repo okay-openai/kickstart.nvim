@@ -42,6 +42,7 @@ return {
 
       -- Document existing key chains
       spec = {
+        { '<leader>b', group = '[A]vante' },
         { '<leader>b', group = '[B]uffer' },
         { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
         { '<leader>d', group = '[D]ocument' },
@@ -51,8 +52,7 @@ return {
         { '<leader>r', group = '[R]ename' },
         { '<leader>p', group = '[P]anel' },
         { '<leader>s', group = '[S]earch' },
-        { '<leader>g', group = '[V]ersion' },
-        { '<leader>w', group = '[W]orkspace' },
+        { '<leader>v', group = '[V]ersion' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
       },

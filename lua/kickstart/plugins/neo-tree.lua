@@ -15,6 +15,14 @@ return {
   },
   opts = {
     buffers = { follow_current_file = { enabled = true } },
-    filesystem = { follow_current_file = { enabled = true } }
-  }
+    filesystem = {
+      follow_current_file = { enabled = true },
+      window = {
+        mappings = {
+          -- disable fuzzy finder
+          ['/'] = 'noop',
+        },
+      },
+    },
+  },
 }

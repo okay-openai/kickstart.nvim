@@ -83,7 +83,7 @@ nnoremap dm :execute 'delmarks '.nr2char(getchar())<cr>
 
 " EXTRA G COMMANDS
 " open file through xdg-open, use on images and the like
-nmap gr :exec ":silent !open ".expand("<cWORD>")
+nmap go :exec ":silent !open ".expand("<cWORD>")
 
 " Set gp to select the last pasted text
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'

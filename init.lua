@@ -21,6 +21,7 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.undodir = vim.fn.stdpath 'data' .. '/undo'
 vim.opt.backupdir = vim.fn.stdpath 'data' .. '/backup'
 vim.opt.directory = vim.fn.stdpath 'data' .. '/swap'
+vim.opt.laststatus = 2
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -81,6 +82,9 @@ end, { desc = 'lazy reload', expr = true })
 vim.keymap.set('n', '<Leader>ls', function()
   vim.cmd ':Lazy sync'
 end, { desc = 'lazy sync' })
+vim.keymap.set('n', '<Leader>ll', function()
+  vim.cmd ':Lazy show'
+end, { desc = 'lazy show' })
 vim.keymap.set('n', '<Leader>lx', function()
   vim.cmd ':Lazy clean'
 end, { desc = 'lazy clean' })
