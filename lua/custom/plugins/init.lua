@@ -91,7 +91,7 @@ return {
       'MunifTanjim/nui.nvim',
     },
   },
-
+  -- { 'weilbith/nvim-lsp-smag' },
   -- { 'liuchengxu/vista.vim' },
   -- { 'neoclide/coc.nvim'}
 }
