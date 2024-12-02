@@ -88,9 +88,6 @@ nmap go :exec ":silent !open ".expand("<cWORD>")
 " Set gp to select the last pasted text
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
-" trim ending whitespace (silently)
-map <silent> <Leader>tr :silent! %s/\s\+$//g
-
 " quick fix and tag select shortcuts
 nmap [b :bp
 nmap ]b :bn

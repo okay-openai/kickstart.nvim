@@ -118,19 +118,24 @@ return {
 
           -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
-          map('<leader>ds', actions.lsp_document_symbols, '[D]ocument [S]ymbols')
+          map('<leader>csd', actions.lsp_document_symbols, '[C]ode [S]ymbols [D]ocument')
+
 
           -- Fuzzy find all the symbols in your current workspace.
           --  Similar to document symbols, except searches over your entire project.
-          -- map('<leader>ws', actions.lsp_workspace_symbols, '[W]orkspace [S]ymbols')
+          map('<leader>csw', actions.lsp_workspace_symbols, '[C]ode [S]ymbols [W]orkspace')
 
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
-          map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+          map('<leader>cr', vim.lsp.buf.rename, '[C]ode [R]ename')
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
           map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
+
+          -- trim ending whitespace (silently)
+          map('<leader>cw', function() vim.cmd "silent! %s/\\s\\+$//g; nohl" end, '[C]ode Clean [W]hitespace')
+
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
@@ -166,9 +171,9 @@ return {
           --
           -- This may be unwanted, since they displace some of your code
           if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-            map('<leader>th', function()
+            map('<leader>ch', function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
-            end, '[T]oggle Inlay [H]ints')
+            end, '[Code] Inlay [H]ints')
           end
         end,
       })
