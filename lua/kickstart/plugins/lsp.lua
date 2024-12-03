@@ -133,9 +133,6 @@ return {
           -- or a suggestion from your LSP for this to activate.
           map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
 
-          -- trim ending whitespace (silently)
-          map('<leader>cw', function() vim.cmd "silent! %s/\\s\\+$//g; nohl" end, '[C]ode Clean [W]hitespace')
-
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.

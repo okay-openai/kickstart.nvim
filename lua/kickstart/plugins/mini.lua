@@ -13,6 +13,11 @@ return {
       -- use gc and gcc for commenting
       require('mini.comment').setup()
 
+      -- trim ending whitespace (silently)
+      vim.keymap.set('n', '<leader>cw', function()
+        require('mini.trailspace').trim()
+      end, {desc = '[C]lean [W]hitespace'})
+
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
