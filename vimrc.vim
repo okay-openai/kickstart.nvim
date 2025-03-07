@@ -48,7 +48,7 @@ set softtabstop=4
 set tabstop=2
 " wild menu and menu completion
 set wildmenu
-set completeopt=menu,menuone,preview,noinsert
+set completeopt=menu,menuone,preview,noselect
 " default to using marker folds
 set foldmethod=marker
 " show me the command!
