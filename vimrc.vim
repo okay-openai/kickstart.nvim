@@ -98,7 +98,9 @@ nmap ]t :tn
 
 " swap two words next to each other, like xp but word wise
 " from http://vim.wikia.com/wiki/Swapping_characters,_words_and_lines
-nnoremap <silent> xw "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>
+nnoremap <silent> xw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/<CR><c-l>:nohlsearch<CR>
+
+
 
 map gq gw
 
