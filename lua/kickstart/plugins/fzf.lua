@@ -16,13 +16,22 @@ return {
       vim.keymap.set('n', '<leader>sr', actions.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>ss', actions.builtin, { desc = '[S]earch [S]elect Search' })
 
-      actions.setup {  'max-perf', fzf_opts = { ['--layout'] = 'default' }, preview_opts = 'hidden', keymap = {
-        fzf = {
-          true,
-          ['ctrl-u'] = 'half-page-up',
-          ['ctrl-d'] = 'half-page-down',
+      actions.setup {
+        'max-perf',
+        fzf_opts = { ['--layout'] = 'default' },
+        keymap = {
+          fzf = {
+            true,
+            ['ctrl-u'] = 'half-page-up',
+            ['ctrl-d'] = 'half-page-down',
+          },
         },
-      } }
+        winopts = {
+          preview = {
+            hidden = true
+          }
+        }
+      }
 
       -- It's also possible to pass additional configuration options.
       --  See `:help telescope.builtin.live_grep()` for information about particular keys
