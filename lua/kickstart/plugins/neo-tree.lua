@@ -15,6 +15,9 @@ return {
   },
   opts = {
     buffers = { follow_current_file = { enabled = true } },
+    enable_git_status = false,
+    enable_diagnostics = false,
+
     filesystem = {
       follow_current_file = { enabled = true },
       window = {

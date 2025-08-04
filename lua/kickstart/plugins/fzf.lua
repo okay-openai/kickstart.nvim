@@ -24,6 +24,8 @@ return {
             true,
             ['ctrl-u'] = 'half-page-up',
             ['ctrl-d'] = 'half-page-down',
+            ['ctrl-i'] = 'toggle-preview',
+            ['ctrl-o'] = 'toggle-preview',
           },
         },
         winopts = {
