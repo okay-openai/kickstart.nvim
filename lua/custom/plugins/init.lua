@@ -91,6 +91,17 @@ return {
       'MunifTanjim/nui.nvim',
     },
   },
+  {
+    'dnlhc/glance.nvim',
+    cmd = 'Glance',
+    config = function()
+      vim.keymap.set('n', 'gld', '<CMD>Glance definitions<CR>')
+      vim.keymap.set('n', 'glr', '<CMD>Glance references<CR>')
+      vim.keymap.set('n', 'gly', '<CMD>Glance type_definitions<CR>')
+      vim.keymap.set('n', 'glm', '<CMD>Glance implementations<CR>')
+    end,
+  },
+
   -- { 'weilbith/nvim-lsp-smag' },
   -- { 'liuchengxu/vista.vim' },
   -- { 'neoclide/coc.nvim'}
