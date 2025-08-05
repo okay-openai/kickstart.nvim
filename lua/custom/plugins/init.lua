@@ -93,7 +93,6 @@ return {
   },
   {
     'dnlhc/glance.nvim',
-    cmd = 'Glance',
     config = function()
       vim.keymap.set('n', 'gld', '<CMD>Glance definitions<CR>')
       vim.keymap.set('n', 'glr', '<CMD>Glance references<CR>')
@@ -101,6 +100,21 @@ return {
       vim.keymap.set('n', 'glm', '<CMD>Glance implementations<CR>')
     end,
   },
+  {
+    'WilliamHsieh/overlook.nvim',
+    config = function() 
+      vim.keymap.set("n", "god", require("overlook.api").peek_definition, { desc = "Peek definition" })
+      vim.keymap.set("n", "gop", require("overlook.api").peek_cursor, { desc = "Peek cursor" })
+      vim.keymap.set("n", "gou", require("overlook.api").restore_popup, { desc = "Restore last popup" })
+      vim.keymap.set("n", "goU", require("overlook.api").restore_all_popups, { desc = "Restore all popups" })
+      vim.keymap.set("n", "goc", require("overlook.api").close_all, { desc = "Close all popups" })
+      vim.keymap.set("n", "gos", require("overlook.api").open_in_split, { desc = "Open popup in split" })
+      vim.keymap.set("n", "gov", require("overlook.api").open_in_vsplit, { desc = "Open popup in vsplit" })
+      vim.keymap.set("n", "got", require("overlook.api").open_in_tab, { desc = "Open popup in tab" })
+      vim.keymap.set("n", "goo", require("overlook.api").open_in_original_window, { desc = "Open popup in current window" })
+    end,
+  },
+
 
   -- { 'weilbith/nvim-lsp-smag' },
   -- { 'liuchengxu/vista.vim' },
