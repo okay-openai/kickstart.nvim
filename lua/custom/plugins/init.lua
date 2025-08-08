@@ -78,9 +78,22 @@ return {
     event = 'VeryLazy',
     lazy = false,
     version = false, -- set this if you want to always pull the latest change
-    opts = {
-      provider = 'openai',
-    },
+    config = function()
+      vim.keymap.set('n', '<leader>ac', '<CMD>AvanteClear<CR>', { desc = 'avante: clear'})
+      require("avante").setup({
+        provider = 'gpt5',
+        providers = {
+          gpt5 = {
+            __inherited_from = 'openai',
+            model = "", -- The model name to use with this provider
+            extra_request_body = {
+              temperature = 1
+            }
+          }
+        },
+      })
+    end,
+
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = 'make',
     -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
